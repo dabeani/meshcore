@@ -82,6 +82,8 @@ MeshCore focuses on a compact, reliable mesh stack while adding polished on-devi
 Contributions welcome. Please open issues for bug reports, improvements, enhancements, or device support (thats more tricky when i do not own one).
 
 ## Device pictures (samples)
+
 * see "images" folder for more!
+
 ![pic_tdeckplus](/images/IMG_2694.jpeg)
 ![pic_sensecapindicator](/images/IMG_2717.jpeg)
