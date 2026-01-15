@@ -27,7 +27,7 @@ for small embedded mesh radios. Highlights include:
 - Messaging: messenger-style channels and DM threads, send confirmations, unread counts, IRC-style transcript view, full message detail view, timestamps, and quick-send actions.
 - Message metadata: display of path/hops, best-effort RSSI and SNR, overheard repeaters list, and route hints.
 - Contacts: sortable/filterable contact list (Azimuth, LastHeard, LastMessage), badges for GPS/reachability/online, favorite/tel flags, and detailed contact view with public key.
-- Map: slippy-tile map with zoom, pan/drag, auto-centering, jump-to-me, map selection of contacts, and tile fetching/caching behavior configurable per target.
+- Map: slippy-tile map with zoom, pan/drag, auto-centering, jump-to-me, map selection of contacts, and tile fetching/caching behavior configurable per target. (look here for maps: https://github.com/mattdrum/map-tile-downloader)
 - Management features: edit device name, WiFi SSID/password, BLE PIN, screen timeout, radio parameters (frequency, bandwidth, spreading factor, coding rate, TX power), GPS pins/baud, and other device settings.
 - Diagnostics & logs: neighbor scan helper, Rx-raw packet log viewer with parsed metadata, parsed packet detail view, telemetry request/pending state and telemetry history, and ping records for reachability tests.
 - Telemetry & sensors: manual telemetry requests, telemetry records (voltage, temperature, humidity, CO2, TVOC), and support helpers for CayenneLPP / LPP payloads.
