@@ -3,7 +3,7 @@ Would be nice if you support me: https://buymeacoffee.com/bmks — thank you ver
 
 # MeshCore / additional GUIs for embedded mesh radios
 
-MeshCore is a lightweight hybrid routing mesh protocol for packet radios... this Repo is mainly about the companion firmware for user-friendly UIs and (actually) support for devices such as the LilyGO T-Deck Plus and Seeed Studio SenseCap Indicator-TFT.
+MeshCore is a lightweight hybrid routing mesh protocol for packet radios... this Repo is mainly about the companion firmware for user-friendly UIs and (actually) support for devices such as the LilyGO T-Deck Plus and Seeed Studio SenseCap Indicator-TFT AND you can connect via BLE or WiFi with the typical APPs (WebUI, iOS,...).
 
 ## Table of contents
 - [Features](#features)
