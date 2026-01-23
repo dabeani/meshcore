@@ -1,6 +1,9 @@
 Would be nice if you support me: https://buymeacoffee.com/bmks — thank you very much!!
 > Important: Use at your own risk. You, the device owner, are responsible for any damage, data loss, or bricked devices.
 
+# Firmware "MC Term"
+Finally there is a name, "MC Term", M(esh)C(ore) Term(inal). We like Retro, you like Retro, we stay retro :-).
+
 # MeshCore / additional GUIs for embedded mesh radios
 
 MeshCore is a lightweight hybrid routing mesh protocol for packet radios... this Repo is mainly about the companion firmware for user-friendly UIs and (actually) support for devices such as the LilyGO T-Deck Plus and Seeed Studio SenseCap Indicator-TFT AND you can connect via BLE or WiFi with the typical APPs (WebUI, iOS,...).
