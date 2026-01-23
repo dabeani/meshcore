@@ -11,10 +11,12 @@ assignees: ''
 A clear and concise description of what the bug is.
 
 
-**Which device are you using***
+**Which device are you using**
 LilyGO T-Deck
 LilyGO T-Deck Plus
 SeeedStudio SenseCap Indicator D1Pro, D1L
+
+**Which Firmware are you using**
 
 **To Reproduce**
 Steps to reproduce the behavior:
