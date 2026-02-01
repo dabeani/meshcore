@@ -2,6 +2,17 @@
 
 All notable changes to this project.
 
+## [v0.9.8] (unreleased)
+
+### Added
+
+### Changed / Improved
+- Mgmt / UI Zoom can now be changed with "^" or "v" buttons.
+
+### Fixed
+
+---
+
 ## [v0.9.7]
 
 ### Added
