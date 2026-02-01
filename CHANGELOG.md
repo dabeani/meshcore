@@ -11,10 +11,15 @@ All notable changes to this project.
 - Mgmt / UI Zoom can now be changed with "^" or "v" buttons.
 - Mgmt / Contacts; Auto Add Types can now be set with freely combinable toggles (USR/RPT/SRV/SNS/OW) when Auto Add is disabled.
 - Mgmt / Contacts; Auto Add Types now shows clearer labels (e.g., "USR (Users)").
+- Contacts / Repeater Admin; reorganized Login screen layout to prevent status text overlap and improve readability.
+- Contacts / Repeater Admin; added live login status lines (Direct/Flood send mode, wait countdown, result, role).
 
 ### Fixed
 - Mgmt / Channels; fixed an issue where adding a new #hashtag channel could show "Channel exists" and could lead to duplicate message display.
 - Mgmt / UI; fixed Tiles Folder picker showing empty after reboot until Map was opened once.
+- MAP; fixed an issue while moving the map out of touch and after returning, where the map would jump back to the original position.
+- Contacts / Repeater Admin; fixed Login button hit-test offset in Contact Detail overlay.
+- Contacts / Repeater Admin; fixed repeater password NVS persistence detection (saved state) and empty-password save/load handling.
 
 ---
 
