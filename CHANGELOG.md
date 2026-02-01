@@ -13,6 +13,7 @@ All notable changes to this project.
 - Mgmt / Contacts; Auto Add Types now shows clearer labels (e.g., "USR (Users)").
 - Contacts / Repeater Admin; reorganized Login screen layout to prevent status text overlap and improve readability.
 - Contacts / Repeater Admin; added live login status lines (Direct/Flood send mode, wait countdown, result, role).
+- Mgmt / UI -> UI Zoom; improved zoom step granularity for finer control with extra buttons for more/less zoom.
 
 ### Fixed
 - Mgmt / Channels; fixed an issue where adding a new #hashtag channel could show "Channel exists" and could lead to duplicate message display.
