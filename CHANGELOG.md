@@ -5,13 +5,17 @@ All notable changes to this project.
 ## [v0.9.8] (unreleased)
 
 ### Added
+- Mgmt / Contacts; added "Purge w/o favs" (purge all contacts except favourites).
 
 ### Changed / Improved
 - Mgmt / UI Zoom can now be changed with "^" or "v" buttons.
+- Mgmt / Contacts; Auto Add Types can now be set with freely combinable toggles (USR/RPT/SRV/SNS/OW) when Auto Add is disabled.
+- Mgmt / Contacts; Auto Add Types now shows clearer labels (e.g., "USR (Users)").
 
 ### Fixed
 - Mgmt / Channels; fixed an issue where adding a new #hashtag channel could show "Channel exists" and could lead to duplicate message display.
-- 
+- Mgmt / UI; fixed Tiles Folder picker showing empty after reboot until Map was opened once.
+
 ---
 
 ## [v0.9.7]
