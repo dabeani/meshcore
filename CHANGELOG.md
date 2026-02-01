@@ -10,7 +10,8 @@ All notable changes to this project.
 - Mgmt / UI Zoom can now be changed with "^" or "v" buttons.
 
 ### Fixed
-
+- Mgmt / Channels; fixed an issue where adding a new #hashtag channel could show "Channel exists" and could lead to duplicate message display.
+- 
 ---
 
 ## [v0.9.7]
