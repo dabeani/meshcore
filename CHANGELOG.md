@@ -6,6 +6,12 @@ All notable changes to this project.
 
 ### Added
 - Mgmt / Contacts; added "Purge w/o favs" (purge all contacts except favourites).
+- Mgmt / GPS; show UBX accuracy estimate (hAcc) when available.
+- MAP (T-Deck Plus); added keyboard controls: W/A/S/D for panning, O/I for zoom in/out, R to recenter on self, T to toggle GPS/Zoom info window.
+- MAP; added zoom level indicator overlay that displays briefly when zoom changes (keyboard or touch).
+- MAP; added GPS info window (top-left) showing altitude, speed (km/h), and current zoom level in a compact 3-line display (toggleable with T key on T-Deck Plus).
+- UI; added autolock feature - can be configured in Mgmt / UI -> LOCK to automatically lock the UI after a period of inactivity. Unlock by holding the unlock button or touching and holding the screen for 2 seconds.
+- Mgmt / UI; added LOCK section with configurable Autolock toggle and Autolock Timer (seconds).
 
 ### Changed / Improved
 - Mgmt / UI Zoom can now be changed with "^" or "v" buttons.
@@ -13,15 +19,22 @@ All notable changes to this project.
 - Mgmt / Contacts; Auto Add Types now shows clearer labels (e.g., "USR (Users)").
 - Contacts / Repeater Admin; reorganized Login screen layout to prevent status text overlap and improve readability.
 - Contacts / Repeater Admin; added live login status lines (Direct/Flood send mode, wait countdown, result, role).
+- GNSS; u-blox M10 nav tuning (portable dynModel + auto fixMode) and 1Hz rate for weak-signal stability.
 - Mgmt / UI -> UI Zoom; improved zoom step granularity for finer control with extra buttons for more/less zoom.
+- MAP; zoom level now automatically persists when changed (via keyboard or touch), eliminating the need for manual default zoom configuration.
+- MAP; removed "Def. Zoom Lvl" setting from Mgmt / UI as zoom now auto-saves and restores on startup.
+- MAP; moved zoom level indicator to top-left position (stacks under GPS info window when active).
+- MAP; GPS accuracy circle now renders as an unfilled light-blue ring instead of a solid fill for better map visibility.
+- UI; autolock is now disabled by default and only engages when enabled in Mgmt / UI -> LOCK.
 
 ### Fixed
 - Mgmt / Channels; fixed an issue where adding a new #hashtag channel could show "Channel exists" and could lead to duplicate message display.
 - Mgmt / UI; fixed Tiles Folder picker showing empty after reboot until Map was opened once.
 - MAP; fixed an issue while moving the map out of touch and after returning, where the map would jump back to the original position.
-- Contacts / Repeater Admin; fixed Login button hit-test offset in Contact Detail overlay.
-- Contacts / Repeater Admin; fixed repeater password NVS persistence detection (saved state) and empty-password save/load handling.
-
+- Contacts/Repeater Admin; fixed Login button hit-test offset in Contact Detail overlay.
+- Contacts/Repeater Admin; fixed repeater password NVS persistence detection (saved state) and empty-password save/load handling.
+- MSGS / Message details view; fixed the overscrolling of the top button bar.
+  
 ---
 
 ## [v0.9.7]
