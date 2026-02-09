@@ -1,0 +1,69 @@
+MeshCore Firmware Binary Distribution
+Copyright (c) 2025 Scott Powell / rippleradios.com
+
+================================================================================
+MIT License
+================================================================================
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+This part includes improvements/changes done by Bernhard Marker:
+================================================================================
+Third-Party Software Attributions
+================================================================================
+
+This software includes or makes use of the following third-party libraries:
+
+- RadioLib (MIT) - Copyright (c) 2018 Jan Gromeš
+- Arduino Crypto Library (MIT) - Copyright (c) 2015 Rhys Weatherley  
+- RTClib (MIT) - Copyright (c) Adafruit Industries
+- CayenneLPP (MIT) - Copyright (c) Electronic Cats
+- ArduinoJson (MIT) - Copyright (c) 2014-2024 Benoît Blanchon
+- ed25519 (Zlib) - Copyright (c) 2015 Orson Peters
+- LovyanGFX (BSD-2-Clause) - Copyright (c) lovyan03
+- Adafruit_LittleFS_stm32 (BSD-3-Clause) - Copyright (c) 2017 ARM Limited
+- SdFat (MIT) - Copyright (c) Bill Greiman
+- Sensirion I2C Libraries (BSD-3-Clause) - Copyright (c) Sensirion
+- CRC32 (MIT) - Copyright (c) bakercp
+- zlib_turbo (Zlib) - Copyright (c) BitBank Software
+- AsyncElegantOTA (MIT) - Copyright (c) 2019 Ayush Sharma
+- ESP32-targz (MIT) - Copyright (c) tobozo
+
+ESP32 builds include:
+- ESPAsyncWebServer (LGPL-3.0) - Copyright (c) me-no-dev
+  Source available at: https://github.com/me-no-dev/ESPAsyncWebServer
+
+================================================================================
+OpenStreetMap Attribution
+================================================================================
+
+This software downloads map tiles from OpenStreetMap at runtime when WiFi is
+available. Map data is licensed under the Open Database License (ODbL).
+
+© OpenStreetMap contributors
+https://www.openstreetmap.org/copyright
+
+Map tiles are not distributed with this software.
+
+================================================================================
+Source Code Availability
+================================================================================
+
+This is a binary-only distribution. The MIT License permits binary-only
+distribution without requiring source code disclosure.
