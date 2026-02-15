@@ -2,38 +2,59 @@
 
 All notable changes to this project.
 
-## [v0.9.8] (unreleased)
+[v0.9.8]
 
 ### Added
-- Mgmt / Contacts; added "Purge w/o favs" (purge all contacts except favourites).
-- Mgmt / GPS; show UBX accuracy estimate (hAcc) when available.
-- MAP (T-Deck Plus); added keyboard controls: W/A/S/D for panning, O/I for zoom in/out, R to recenter on self, T to toggle GPS/Zoom info window.
-- MAP; added zoom level indicator overlay that displays briefly when zoom changes (keyboard or touch).
-- MAP; added GPS info window (top-left) showing altitude, speed (km/h), and current zoom level in a compact 3-line display (toggleable with T key on T-Deck Plus).
-- UI; added autolock feature - can be configured in Mgmt / UI -> LOCK to automatically lock the UI after a period of inactivity. Unlock by holding the unlock button or touching and holding the screen for 2 seconds.
-- Mgmt / UI; added LOCK section with configurable Autolock toggle and Autolock Timer (seconds).
+Contacts / Room Server; added room login + Room Console (transcript + send + logout) under Contact Detail.
+UI; added horizontal drag in text input fields to move the cursor (caret).
+Contacts: added small RSTPath button in Contact Detail to reset a contact's route/path.
+Power: added PowerStatus struct and MainBoard::getPowerStatus() helper; UI now reads consolidated power state for battery/charging/usb.
+Power (T-Deck Plus): added configurable ADC multiplier / VBAT divider ratio support (adc.multiplier) to allow per-device calibration.
+Mgmt / Contacts; added "Purge w/o favs" (purge all contacts except favourites).
+Mgmt / GPS; show UBX accuracy estimate (hAcc) when available.
+MAP (T-Deck Plus); added keyboard controls: W/A/S/D for panning, O/I for zoom in/out, R to recenter on self, T to toggle GPS/Zoom info window.
+MAP; added zoom level indicator overlay that displays briefly when zoom changes (keyboard or touch).
+MAP; added GPS info window (top-left) showing altitude, speed (km/h), and current zoom level in a compact 3-line display (toggleable with T key on T-Deck Plus).
+UI; added autolock feature - can be configured in Mgmt / UI -> LOCK to automatically lock the UI after a period of inactivity. Unlock by holding the unlock button or touching and holding the screen for 2 seconds.
+Mgmt / UI; added LOCK section with configurable Autolock toggle and Autolock Timer (seconds).
 
 ### Changed / Improved
-- Mgmt / UI Zoom can now be changed with "^" or "v" buttons.
-- Mgmt / Contacts; Auto Add Types can now be set with freely combinable toggles (USR/RPT/SRV/SNS/OW) when Auto Add is disabled.
-- Mgmt / Contacts; Auto Add Types now shows clearer labels (e.g., "USR (Users)").
-- Contacts / Repeater Admin; reorganized Login screen layout to prevent status text overlap and improve readability.
-- Contacts / Repeater Admin; added live login status lines (Direct/Flood send mode, wait countdown, result, role).
-- GNSS; u-blox M10 nav tuning (portable dynModel + auto fixMode) and 1Hz rate for weak-signal stability.
-- Mgmt / UI -> UI Zoom; improved zoom step granularity for finer control with extra buttons for more/less zoom.
-- MAP; zoom level now automatically persists when changed (via keyboard or touch), eliminating the need for manual default zoom configuration.
-- MAP; removed "Def. Zoom Lvl" setting from Mgmt / UI as zoom now auto-saves and restores on startup.
-- MAP; moved zoom level indicator to top-left position (stacks under GPS info window when active).
-- MAP; GPS accuracy circle now renders as an unfilled light-blue ring instead of a solid fill for better map visibility.
-- UI; autolock is now disabled by default and only engages when enabled in Mgmt / UI -> LOCK.
+Contacts; service contacts are no longer treated like normal DM targets:
+Repeaters now route to Repeater Admin.
+Room Servers now route to the Room Console.
+UI; horizontal swipes that switch higher-level frames now require an edge swipe (keeps left/right scrolling available for the focused element).
+UI (T-Deck Plus); trackball left/right no longer switches the bottom menu tabs.
+UI (T-Deck Plus); when editing a text field, trackball left/right moves the text cursor (caret).
+MAP; scroll/pan inputs now operate on the map view itself (instead of page-level scrolling).
+Mgmt / UI Zoom can now be changed with "^" or "v" buttons.
+Mgmt / Contacts; Auto Add Types can now be set with freely combinable toggles (USR/RPT/SRV/SNS/OW) when Auto Add is disabled.
+Mgmt / Contacts; Auto Add Types now shows clearer labels (e.g., "USR (Users)").
+Contacts / Repeater Admin; reorganized Login screen layout to prevent status text overlap and improve readability.
+Contacts / Repeater Admin; added live login status lines (Direct/Flood send mode, wait countdown, result, role).
+GNSS; u-blox M10 nav tuning (portable dynModel + auto fixMode) and 1Hz rate for weak-signal stability.
+Mgmt / UI -> UI Zoom; improved zoom step granularity for finer control with extra buttons for more/less zoom.
+MAP; zoom level now automatically persists when changed (via keyboard or touch), eliminating the need for manual default zoom configuration.
+MAP; removed "Def. Zoom Lvl" setting from Mgmt / UI as zoom now auto-saves and restores on startup.
+MAP; moved zoom level indicator to top-left position (stacks under GPS info window when active).
+MAP; GPS accuracy circle now renders as an unfilled light-blue ring instead of a solid fill for better map visibility.
+UI; autolock is now disabled by default and only engages when enabled in Mgmt / UI -> LOCK.
 
 ### Fixed
-- Mgmt / Channels; fixed an issue where adding a new #hashtag channel could show "Channel exists" and could lead to duplicate message display.
-- Mgmt / UI; fixed Tiles Folder picker showing empty after reboot until Map was opened once.
-- MAP; fixed an issue while moving the map out of touch and after returning, where the map would jump back to the original position.
-- Contacts/Repeater Admin; fixed Login button hit-test offset in Contact Detail overlay.
-- Contacts/Repeater Admin; fixed repeater password NVS persistence detection (saved state) and empty-password save/load handling.
-- MSGS / Message details view; fixed the overscrolling of the top button bar.
+Contacts / Room Console; fixed transcript drawing over the "Room Console" title (partial refresh artifacts) and added a bordered transcript viewport.
+MAP (T-Deck Plus); fixed reversed zoom hotkeys: I now zooms in and O zooms out.
+DM editor; fixed being able to send DMs to Repeaters/Room Servers via existing DM threads (now blocked and redirected to the proper flow).
+Mgmt / Log: touch scroll release no longer triggers a tap on the last touched point (prevents click-through when stopping a scroll).
+Mgmt / Log: require a tap gesture before activating list actions to avoid scroll-release click-through.
+Boards (T-Deck Plus): repaired corrupted header and fixed VBAT conversion to use the new configurable multiplier; prevents miscalibrated battery percentage readings.
+Contacts / Repeater Admin: clear session and cached repeater data when leaving admin or switching repeaters (prevents stale values).
+Contacts / Repeater Admin: direct routes now send direct logins/requests; flood is used only when no path is known.
+UI: hide battery percentage while charging; avoid duplicated charging indicator.
+Mgmt / Channels; fixed an issue where adding a new #hashtag channel could show "Channel exists" and could lead to duplicate message display.
+Mgmt / UI; fixed Tiles Folder picker showing empty after reboot until Map was opened once.
+MAP; fixed an issue while moving the map out of touch and after returning, where the map would jump back to the original position.
+Contacts/Repeater Admin; fixed Login button hit-test offset in Contact Detail overlay.
+Contacts/Repeater Admin; fixed repeater password NVS persistence detection (saved state) and empty-password save/load handling.
+MSGS / Message details view; fixed the overscrolling of the top button bar.
   
 ---
 
