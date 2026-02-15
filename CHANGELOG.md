@@ -2,6 +2,28 @@
 
 All notable changes to this project.
 
+## [v0.9.9]
+
+### Changed / Improved
+- updated to mescore v1.13.0
+- Initialize T-Deck I2S buzzer at boot (keeps it quiet when disabled) to avoid driver install from touch handlers and prevent UI lockups on LilyGo T-Deck.
+- Accept login-OK responses from alternate sender identities when the response matches expected formats (fixes repeater login stuck cases).
+- Adjusted conservative repeater request/timeout values and improved local CLI reply handling.
+- Repeater + RoomServer pending waits: Flood min 30s, Direct min 15s (applies to login and other admin requests).
+- Reduce idle CPU usage by yielding in the main loop (adaptive delay when screen is soft-off/no companion app connected) to improve power draw without changing functionality.
+- Add separate keyboard backlight timeout setting in Mgmt/UI (T-Deck Plus), independent of screen timeout and autolock.
+- Smooth fade when display/keyboard backlight turns off (soft-off / keyboard timeout) instead of snapping to black.
+- Persist Map "info bar" (altitude bar) toggle (T key) across reboots.
+- Moved "Custom QuickSend" configuration from Mgmt/UI to Mgmt/Messages.
+- reduce power use in display off/soft-off state by increasing idle sleep and skipping non-essential touch/gesture processing until wake.
+
+### Fixed
+- Prevent UI freeze when toggling "All Sounds" after reboot on LilyGo T-Deck builds by ensuring I2S/buzzer hardware is initialized safely at boot.
+- Fix repeater login hanging when the OK response arrives from a different sender identity.
+- Harden Mgmt/Global "Reboot" to always restart on ESP32 (adds esp_restart() fallback and avoids sticky UI states).
+
+---
+
 ## [v0.9.8]
 
 ### Added
