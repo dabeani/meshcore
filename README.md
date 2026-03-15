@@ -44,6 +44,9 @@ This firmware includes companion UIs and support for several devices; notable ex
 
 - LilyGO T-Deck / T-Deck Plus — more details: https://lilygo.cc/en-us/products/t-deck-plus-1
 - Seeed Studio SenseCap Indicator (TFT / D1Pro) — more details: https://www.seeedstudio.com/
+# SOON
+- Heltec V4 with Display! (v0.9.11) (WIP)
+- Elecrow with 3.5 Display! (v0.9.11) (WIP)
 
 ## Installation
 
