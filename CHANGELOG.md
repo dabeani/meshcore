@@ -2,6 +2,89 @@
 
 All notable changes to this project.
 
+## [v0.9.12] (unreleased)
+
+## implemented Elecrow CrowPanel 7" companion radio support!
+
+### unfinished
+- MAP is still WIP!
+
+### Added
+- **GUI: contact list reachability badges condensed**
+  - Reachability badges shortened: direct-link badge is now "D" (green), flood-route badge is now "F" (blue)
+  - Last-heard time badge background changed from blue to dark/neutral so blue is unambiguously associated with flood-route only
+- **GUI: status-bar clock quick access**
+  - Added a live time display in the status bar so current clock state/time is visible at a glance
+  - Tapping the status-bar clock now opens Mgmt → Date/Time directly for quick adjustment
+- **GUI: contact list badge reordering and new device-byte badge**
+  - Right-side badge order is now: `[1b/2b/3b]` `[TYPE]` `[ROUTE]` `[LAST_HEARD]` `[FAV]` `[GPS]` `[MAIL]`
+  - New "device-byte" badge (`1b`, `2b`, `3b`) shows the address hash width used in the contact's last advert — dark background, visible when advert path data is available
+- **GUI: unread mail indicators moved to Msgs tab button**
+  - Top status-bar unread envelope indicator (near WiFi/BLE badges) was removed to reduce clutter and improve signal-badge clarity
+  - `Msgs` tab now shows a white envelope directly left of the label when channel messages are unread, and a red envelope directly right of the label when DMs are unread
+  - Indicator sizes are scaled to tab text height so they stay readable without overpowering the button text
+### Changed / Improved
+- **Companion radio UI maintenance and cleanup**
+  - UI codebase reorganized for easier long-term maintenance and safer follow-up changes
+  - Core companion radio targets were revalidated to keep builds stable after the cleanup work
+- **Management log readability improved**
+  - Long sender, destination, and packet text now wrap to the available screen width instead of being cut off early
+  - Log detail view shows richer packet content before shortening is needed on very large payloads
+  - Log scrolling and entry layout were optimized so the log page remains responsive even with larger entries
+- **More consistent device colors across the interface**
+  - Device colors are now applied more broadly in the management log and detail views
+  - Device identity colors are now deterministic and non-repeating across the global UI rules
+- **Channel and DM views stay more responsive while browsing larger histories**
+  - Transcript rows, detail views, and touch hit-testing now reuse prepared message text instead of rebuilding the same sender/body data repeatedly
+  - Scrolling, selection, and hashtag handling were tightened without reducing live refresh behavior for ongoing stats and message updates
+- **Documentation and build config follow-up completed**
+  - Companion GUI guide wording and behavioral notes were aligned with current log capacity, wrapping behavior, identity-color usage, and clipboard path
+  - Elecrow CrowPanel 7 GUI build now pins the tested Espressif platform release explicitly for reproducible builds
+- **CrowPanel 7 list readability and alignment improved**
+  - Contacts, DMs, and Channels overview rows now use larger list text on the 7-inch panel profile
+  - Row text, discovered-item labels, and related row actions are vertically centered using row-height-aware placement to avoid off-center rendering
+- **CrowPanel 7 global text readability uplift**
+  - Baseline GUI text sizing was raised for the 7-inch panel profile so message views, detail pages, contacts detail, management screens, and related UI text paths render larger by default
+  - Applied as an environment-specific profile only, keeping other device layouts unchanged
+- **CrowPanel 7 layout balancing pass for larger text**
+  - Statusbar activity indicator, unread-message symbols, and WiFi/BLE badges were resized and re-centered to match the larger text profile
+  - Message/detail and management line spacing were increased to reduce cramped wrapped text
+  - Management header/action buttons were scaled up for better readability and touch comfort on the 7-inch display
+- **CrowPanel 7 header and button polish**
+  - Chat transcript (Back/Custom/Send) and message-detail (Back/Reply/Del) button labels are now vertically centered in their row instead of being anchored to a fixed pixel offset
+  - Management "Back" button label in sub-page headers uses dynamic text-height centering so it remains vertically centered at the larger CrowPanel 7 text size
+  - Management header blue pager/back buttons (< >) gained more height for easier tapping
+  - Management action buttons (Edit, Enable/Disable, Add, Del, etc.) are wider to accommodate longer labels without crowding
+  - Status-bar battery icon and text are now vertically centered within the expanded CrowPanel 7 status-bar height instead of being pinned to a fixed y offset
+- **CrowPanel 7 comprehensive alignment pass across companion GUI**
+  - Contact badges, contact detail header actions, RPT admin rows, map folder rows, confirm dialogs, room/RPT login actions, and telemetry/clock request controls now use row/button-height-aware vertical centering instead of fixed y offsets
+  - Standalone action buttons now share a board-aware minimum height rule so CrowPanel 7 keeps readable text spacing while smaller targets preserve the previous compact sizing
+  - Management advert two-line buttons now place text using text-size-aware offsets, keeping both lines centered as display text size changes
+  - Management-style buttons now always render their label text (fixes blank button captions on Global/ACL/clock-sync/request/scan style actions)
+- **GUI regression build stability follow-up**
+  - Removed stale per-variant Arduino framework package overrides from SenseCap Indicator TFT and Elecrow CrowPanel 7 configs to align with their active platform package set
+
+
+### Fixed
+- **GUI: Date/Time set dialog timezone mismatch**
+  - Management overview and "Set Time" editor now both use the configured timezone consistently instead of mixing local display with UTC-oriented edit semantics
+  - Manual Date/Time entry is interpreted as local wall-clock time for the active timezone (including DST rules), so users can enter exactly what is shown in the overview
+  - Set-Time input prefill now uses local timezone time to match the visible Date/Time row
+- **GUI: contacts could become garbled/corrupted after malformed contact updates or persisted non-terminated names**
+  - Contact update command parsing now enforces the full minimum frame length before decoding, rejecting truncated payloads instead of ingesting garbage bytes
+  - Contact names loaded from frames and storage are now explicitly null-terminated to prevent string overrun into adjacent contact fields
+  - Discovered-contact cache updates now use bounded copy for names, preventing overflow that could corrupt contact row state and right-side badges/actions
+  - Persisted contact route lengths are sanitized on load so invalid values no longer destabilize contact rendering/state
+- **GUI: long-tap copy in message detail could paste only a truncated wrapped fragment**
+  - Long-tap copy without drag-selection now copies the full message body instead of a single wrapped line fragment
+  - Detail line-hit indexing now matches render indexing when sender prefix wraps to its own line, preventing off-by-one selection/copy mismatches
+  - Clipboard persistence now receives the intended full copied message text for subsequent paste operations
+- **Management log truncation and readability regressions**
+  - Long log entries no longer lose important sender/destination information when the text exceeds one line
+  - Packet details now wrap across lines based on display size instead of stopping at early ellipsis in common cases
+
+---
+
 ## [v0.9.11]
 
 ### Upstream base upgraded: MeshCore v1.13 → v1.14
